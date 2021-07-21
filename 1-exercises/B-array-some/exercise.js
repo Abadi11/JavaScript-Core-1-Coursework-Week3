@@ -11,6 +11,13 @@ var pairsByIndex = [[0, 3], [1, 2], [2, 1], null, [3, 0]];
 // If there is a null value in the array exit the program with the error code
 // https://nodejs.org/api/process.html#process_process_exit_code
 // process.exit(1);
+function isThereNull (value){
+  if (value === null){
+    return process.exit(1);
+  }
+}
+var containNullValue = pairsByIndex.some(isThereNull);
+console.log(containNullValue)
 
 var students = ["Islam", "Lesley", "Harun", "Rukmini"];
 var mentors = ["Daniel", "Irina", "Mozafar", "Luke"];
@@ -20,5 +27,6 @@ var pairs = pairsByIndex.map(function (indexes) {
   var mentor = mentors[indexes[1]];
   return [student, mentor];
 });
+
 
 console.log(pairs);
