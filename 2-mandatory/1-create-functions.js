@@ -40,7 +40,7 @@ Write a function that:
 */
 
 function remove(arr, index) {
-  return arr.splice(index);
+  return arr.splice(index,1);
 }
 
 /*
@@ -156,4 +156,4 @@ test("formatPercentage function works", () => {
     "100%",
     "0.37%",
   ]);
-});*/
+});
