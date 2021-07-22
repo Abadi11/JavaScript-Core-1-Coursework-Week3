@@ -156,4 +156,4 @@ test("formatPercentage function works", () => {
     "100%",
     "0.37%",
   ]);
-});
+});*/
