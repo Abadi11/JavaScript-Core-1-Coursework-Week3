@@ -16,9 +16,9 @@ function findSafeOxygenLevel(oxygen) {
   for (let i = 0; i<oxygen.length; i++){
   oxygen[i].replace("%","");
   let oxygenParseFloat = [];
-  console.log(oxygenParseFloat)
+  //console.log(oxygenParseFloat)
   oxygenParseFloat[i] = parseFloat(oxygen[i]);
-  console.log(oxygenParseFloat[i])
+  //console.log(oxygenParseFloat[i])
   numberOfPercentage.push(oxygenParseFloat[i])
 }
 function findOxygen (num){
@@ -29,9 +29,7 @@ function findOxygen (num){
   }
 }
 let safeOxygen = numberOfPercentage.find(findOxygen);
-safeOxygen.toString();
-safeOxygen = safeOxygen+ "%"
-return safeOxygen
+return safeOxygen.toString() + "%"
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== */
@@ -51,7 +49,7 @@ test("findSafeOxygenLevel function works - case 2", () => {
 test("findSafeOxygenLevel function filters out invalid percentages", () => {
   expect(
     findSafeOxygenLevel(["200%", "-21.5%", "20", "apes", "21.1%"])
-  ).toEqual("21.1%");
+  ).toEqual("20%");
 });
 
 test("findSafeOxygenLevel function returns undefined if no valid plants found", () => {

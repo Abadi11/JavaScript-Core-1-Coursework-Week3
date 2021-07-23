@@ -103,7 +103,7 @@ function isAccessibleByTransportMode(arrayOfTransport, transportMode) {
       e.g: "Tower Bridge"
 */
 function getLocationName(arr) {
-  let location = arr.shift();
+  let location = arr[0];
   return location;
 }
 
@@ -137,11 +137,11 @@ function getLocationName(arr) {
 function journeyPlanner(locations, transportMode) {
   // Implement the function body
   let newArr = [];
-  let newArr1=[];
+  //let newArr1=[];
   for (let i = 0; i < locations.length; i++){
     if (isAccessibleByTransportMode(locations[i],transportMode)){
       newArr.push(getLocationName(locations[i]));
-      newArr1.push(getTransportModes(locations[i]));
+      //newArr1.push(getTransportModes(locations[i]));
     }
   }
   //console.log(newArr1)
