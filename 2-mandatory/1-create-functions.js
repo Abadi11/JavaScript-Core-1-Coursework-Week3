@@ -62,14 +62,16 @@ Write a function that:
 
 function formatPercentage(arr) {
 let newArr = [];
+let newArr1 = [];
 for (let i = 0; i < arr.length; i++){
-  arr[i].toFixed(2);
-  arr[i] = arr[i] + "%";
-  if (arr[i] > 100) {
-  arr[i] = "100.00%";
+  
+  newArr1[i] = Math.round(arr[i] * 100) / 100;
+  if (newArr1[i] > 100) {
+  newArr1[i] = "100";
   }
-  arr[i].toString();
-  newArr.push(arr[i]);
+  newArr1[i].toString();
+  newArr1[i] = newArr1[i] + "%";
+  newArr.push(newArr1[i]);
 }
 return newArr
 }
