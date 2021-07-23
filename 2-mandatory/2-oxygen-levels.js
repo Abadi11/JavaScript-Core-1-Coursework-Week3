@@ -13,10 +13,13 @@
 
 function findSafeOxygenLevel(oxygen) {
   for (let i = 0; i<oxygen.length; i++){
-    if (oxygen[i] >= 19.5 && oxygen[i] <= 23.5){
-  return "Safe To Land"
+    oxygen[i].replace("%", "")
+    let oxygenParseInt = [];
+    oxygenParseInt[i] = parseInt(oxygen[i]);
+    if (oxygenParseInt[i] >= 19.5 && oxygenParseInt[i] <= 23.5){
+  return oxygenParseInt[i]
 }else{
-  return "Unsafe To land"
+  return oxygenParseInt[i]
 }
   }
 

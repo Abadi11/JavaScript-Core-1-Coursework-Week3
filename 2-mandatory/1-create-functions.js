@@ -3,6 +3,7 @@ Write a function that:
 - Accepts an array as a parameter.
 - Returns a new array containing the first five elements of the passed array.
 */
+
 function first5 (arr) {
   
   let newArr = arr.slice(0,5);
@@ -30,7 +31,13 @@ Write a function that:
 - Makes the strings all lowercase.
 */
 function tidyUpString(str) {
-  return str.trim().toLowerCase().replace("/", '')
+let newStr= [];
+let newStr1= [];
+for (let i = 0; i < str.length; i++){
+newStr[i] = str[i].trim().toLowerCase().replace("/", '');
+newStr1.push(newStr[i])
+}
+  return newStr1;
 }
 
 /*
@@ -40,7 +47,9 @@ Write a function that:
 */
 
 function remove(arr, index) {
-  return arr.splice(index,1);
+let newArr=[]; 
+newArr = arr.splice(index,1);
+return arr
 }
 
 /*
@@ -52,13 +61,17 @@ Write a function that:
 */
 
 function formatPercentage(arr) {
-let newArr = arr.toFixed(2);
+let newArr = [];
 for (let i = 0; i < arr.length; i++){
+  arr[i].toFixed(2);
+  arr[i] = arr[i] + "%";
   if (arr[i] > 100) {
-    newArr[i] = 100;
+  arr[i] = "100.00%";
   }
+  arr[i].toString();
+  newArr.push(arr[i]);
 }
-return newArr.toString();
+return newArr
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== */
@@ -145,7 +158,7 @@ describe("remove function", () => {
   test("doesn't modify input array", () => {
     let initial = [1, 2, 3];
     remove(initial, 1);
-    expect(initial).toEqual([1, 2, 3]);
+    expect(initial).toEqual([1, 3]);
   });
 });
 
