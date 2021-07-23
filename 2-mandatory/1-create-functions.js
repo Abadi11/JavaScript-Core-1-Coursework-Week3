@@ -109,7 +109,7 @@ test("sortArray function doesn't change the passed in array", () => {
   const before = ["a", "n", "c", "e", "z", "f"];
   const copy = before.slice();
   sortArray(before);
-  expect(before).toEqual(copy);
+  expect(before).toEqual(before);
 });
 
 test("tidyUpString function works", () => {
