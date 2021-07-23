@@ -12,17 +12,26 @@
 */
 
 function findSafeOxygenLevel(oxygen) {
+  let numberOfPercentage =[];
   for (let i = 0; i<oxygen.length; i++){
-    oxygen[i].replace("%", "")
-    let oxygenParseInt = [];
-    oxygenParseInt[i] = parseInt(oxygen[i]);
-    if (oxygenParseInt[i] >= 19.5 && oxygenParseInt[i] <= 23.5){
-  return oxygenParseInt[i]
-}else{
-  return oxygenParseInt[i]
+  oxygen[i].replace("%","");
+  let oxygenParseFloat = [];
+  console.log(oxygenParseFloat)
+  oxygenParseFloat[i] = parseFloat(oxygen[i]);
+  console.log(oxygenParseFloat[i])
+  numberOfPercentage.push(oxygenParseFloat[i])
 }
+function findOxygen (num){
+  if (num > 19.5 && num < 23.5){
+  return true;
+  }else{
+    return false;
   }
-
+}
+let safeOxygen = numberOfPercentage.find(findOxygen);
+safeOxygen.toString();
+safeOxygen = safeOxygen+ "%"
+return safeOxygen
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== */
