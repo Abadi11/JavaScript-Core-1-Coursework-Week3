@@ -1,40 +1,27 @@
-function getTransportModes(mode) {
-  mode.shift();
-  return mode;
+function findSafeOxygenLevel(oxygen) {
+  let numberOfPercentage =[];
+  for (let i = 0; i<oxygen.length; i++){
+  oxygen[i].replace("%","");
+  let oxygenParseFloat = [];
+  //console.log(oxygenParseFloat)
+  oxygenParseFloat[i] = parseFloat(oxygen[i]);
+  //console.log(oxygenParseFloat[i])
+  numberOfPercentage.push(oxygenParseFloat[i])
 }
-
-function isAccessibleByTransportMode(arrayOfTransport, transportMode) {
-  if (arrayOfTransport.includes(transportMode)){
-    return true;
+function findOxygen (num){
+  if (num > 19.5 && num < 23.5){
+  return true;
   }else{
     return false;
   }
 }
-
-function getLocationName(arr) {
-  let newArr = arr;
-  let location = newArr[0];
-  return location;
+let safeOxygen = numberOfPercentage.find(findOxygen);
+if (safeOxygen === undefined){
+  process.exit(1);
 }
-
-function journeyPlanner(locations, transportMode) {
-  // Implement the function body
-  let newArr = [];
-  for (let i = 0; i < locations.length; i++){
-    if (isAccessibleByTransportMode(locations[i],transportMode)){
-      newArr.push(getLocationName(locations[i]));
-    }
-  }
-  return newArr
+console.log(typeof safeOxygen)
+return safeOxygen.toString() + "%"
 }
-const londonLocations = [
-  ["Angel", "tube", "bus"],
-  ["London Bridge", "tube", "river boat"],
-  ["Tower Bridge", "tube", "bus"],
-  ["Greenwich", "bus", "river boat"],
-];
-console.log(journeyPlanner(londonLocations, "bus"))
-
-console.log(journeyPlanner(londonLocations, "tube"))
+console.log(findSafeOxygenLevel(["50"]))
 
 
