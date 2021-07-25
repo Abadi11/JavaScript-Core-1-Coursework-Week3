@@ -2,11 +2,13 @@ function sortAges(arr) {
   let newArr = [];
   //let newArr1 = [];
   for (let i = 0; i < arr.length; i++){
-    if (arr[i] == Number ){
-     newArr.push(arr[i])
+    if (typeof (arr[i]) === "number" ){
+    newArr.push(arr[i]);
     }
-    //newArr1.push(newArr[i])
+    
+
   }
+  //console.log(newArr)
   return newArr
 }
 const agesCase1 = [
@@ -26,5 +28,3 @@ const agesCase1 = [
   "Ismeal",
 ];
 console.log(sortAges(agesCase1))
-
-

@@ -1,24 +1,46 @@
 function isCreditCardValidate (numberCard){
+ let output;
  numberCard = numberCard.toString().split("");
  let newArr=[];
  for (let i = 0; i < numberCard.length; i++){
   numberCard [i]= parseInt(numberCard[i])
   newArr.push(numberCard[i])
  }
- //console.log(newArr)
- if (newArr.length === 16 && typeof(newArr) === number && newArr[16] % 2 === 0 && newArr.reduce((a,b) => a+b) > 16){
-  return true
+
+ // now the new Array is number 
+ console.log(newArr)
+ // function to check every element is just a number
+ function checkNumber(num){
+  if (num === "number"){
+    return true;
+  }else{
+    return false;
+  }
+}
+
+
+// Checking if the credit card is validated or not
+ if (newArr.length !== 16){
+  output = "Number must be 16 digits"
+ }else if (newArr.every(checkNumber)){
+  output = "All of the items must be numbers"
+ }else if ((newArr[15]) % 2 !== 0 ){
+  output = "The final digit must be even"
+ }else if (newArr.reduce((a,b) => a+b) <= 16){
+  output = "The sum of all the digits must be greater than 16"
+ }else{
+  output = "It is validate"
  }
- // The credit card number must be composed of at least two different digits (i.e. all of the digits cannot be the same)
+ // The credit card number must be composed of at least two different digits (i.e. all of the digits cannot be the same) I took it from google :)
  var obj = {};
  for (let i = 0; i< newArr.length; i++){
   obj[newArr[i]] = true;
  }
  if (Object.keys(obj).length < 2) {
-  return false;
+  output = "The credit card number must be composed of at least two different digits";
  }
- return
+ return output
 }
 
-var number = 4444555566664444;
+var number = "4444444444555462";
 console.log(isCreditCardValidate(number))

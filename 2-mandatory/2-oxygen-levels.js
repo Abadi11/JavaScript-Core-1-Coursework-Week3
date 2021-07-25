@@ -29,11 +29,15 @@ function findOxygen (num){
   }
 }
 let safeOxygen = numberOfPercentage.find(findOxygen);
+
 if (safeOxygen === undefined){
   return safeOxygen = undefined;
+   
 }else{
 return safeOxygen.toString() + "%"
 }
+//return safeOxygen.toString() + "%"
+
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== */
