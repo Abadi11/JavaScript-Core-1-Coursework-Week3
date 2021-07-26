@@ -10,8 +10,8 @@ function isCreditCardValidate (numberCard){
  // now the new Array is number 
  console.log(newArr)
  // function to check every element is just a number
- function checkNumber(num){
-  if (num === "number"){
+ function checkDigit(num){
+  if (Number.isNaN(num)){
     return true;
   }else{
     return false;
@@ -22,7 +22,7 @@ function isCreditCardValidate (numberCard){
 // Checking if the credit card is validated or not
  if (newArr.length !== 16){
   output = "Number must be 16 digits"
- }else if (newArr.every(checkNumber)){
+ }else if (newArr.some(checkDigit)){
   output = "All of the items must be numbers"
  }else if ((newArr[15]) % 2 !== 0 ){
   output = "The final digit must be even"
@@ -42,5 +42,5 @@ function isCreditCardValidate (numberCard){
  return output
 }
 
-var number = "4444444444555462";
+var number = "4444444555151662";
 console.log(isCreditCardValidate(number))
