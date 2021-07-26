@@ -5,13 +5,9 @@ function sortAges(arr) {
     newArr.push(arr[i]);
     }
   }
-  let sortArr= []
-  for (let i = 0; i < newArr.length; i++){
-    if (newArr[i-1] > newArr[i]){
-    sortArr.push(newArr[i-1])
-    }
-  }
-  return sortArr
+  
+  let sortedArr= newArr.sort();
+  return sortedArr;
 }
 const agesCase1 = [
   "🎹",
