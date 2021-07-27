@@ -6,7 +6,7 @@ function sortAges(arr) {
     }
   }
   
-  let sortedArr= newArr.sort(); // 
+  let sortedArr= newArr.sort((a,b) => a - b); // I can not sort ascending numbers without built in methods because it will take a lot of time to understand how it works as it is very difficult and I am running out of time, but I will keep it in my mind, sorry
   return sortedArr;
 }
 const agesCase1 = [
