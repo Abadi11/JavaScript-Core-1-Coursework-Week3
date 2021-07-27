@@ -6,7 +6,7 @@ function sortAges(arr) {
     }
   }
   
-  let sortedArr= newArr.sort();
+  let sortedArr= newArr.sort(); // 
   return sortedArr;
 }
 const agesCase1 = [
