@@ -21,11 +21,7 @@
   Let's first look at an example that will teach you how to use these methods.
 */
 function isAllBerrySafeToEat (berry){
-  if (berry === "pink"){
-    return true;
-  }else{
-    return false;
-  }
+  return berry === "pink"
 }
 function isBushSafe(berryArray) {
   //Write your code here

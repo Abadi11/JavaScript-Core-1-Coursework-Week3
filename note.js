@@ -1,29 +1,20 @@
-function sortAges(arr) {
-  let newArr = [];
-  for (let i = 0; i < arr.length; i++){
-    if (typeof (arr[i]) === "number" ){
-    newArr.push(arr[i]);
-    }
-  }
-  
-  let sortedArr= newArr.sort((a,b) => a - b); // I can not sort ascending numbers without built in methods because it will take a lot of time to understand how it works as it is very difficult and I am running out of time, but I will keep it in my mind, sorry
-  return sortedArr;
+function findSafeOxygenLevel(oxygen) {
+  let numberOfPercentage =[]; //From here, I converted the numbers from Strings to Numbers
+  let possibleOxygen = oxygen.filter((prece) => prece.includes("%"));
+  for (let i = 0; i<possibleOxygen.length; i++){
+  possibleOxygen[i].replace("%",""); // take % of from String
+  let oxygenParseFloat = [];
+  oxygenParseFloat[i] = parseFloat(possibleOxygen[i]); // Get numbers from string
+  numberOfPercentage.push(oxygenParseFloat[i])
+}// To here, Now the number of percentage is ready to compare
+function findOxygen (num){
+  return num > 19.5 && num < 23.5;
 }
-const agesCase1 = [
-  "🎹",
-  100,
-  "💩",
-  55,
-  "🥵",
-  "🙈",
-  45,
-  "🍕",
-  "Sanyia",
-  66,
-  "James",
-  23,
-  "🎖",
-  "Ismeal",
-];
-console.log(sortAges(agesCase1))
-
+let safeOxygen = numberOfPercentage.find(findOxygen);
+console.log(typeof safeOxygen)
+if (typeof safeOxygen === "number"){
+  return safeOxygen.toString() + "%";
+//}else{
+ // safeOxygen = undefinedreturn the percentage to string to appear up in the console
+}
+}

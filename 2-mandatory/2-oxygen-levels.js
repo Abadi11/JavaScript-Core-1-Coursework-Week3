@@ -11,33 +11,18 @@
     Some string methods that might help you here are .replace() and .substring(). 
 */
 
-function findSafeOxygenLevel(oxygen) {
-  let numberOfPercentage =[];
-  for (let i = 0; i<oxygen.length; i++){
-  oxygen[i].replace("%","");
-  let oxygenParseFloat = [];
-  //console.log(oxygenParseFloat)
-  oxygenParseFloat[i] = parseFloat(oxygen[i]);
-  //console.log(oxygenParseFloat[i])
-  numberOfPercentage.push(oxygenParseFloat[i])
-}
-function findOxygen (num){
-  if (num > 19.5 && num < 23.5){
-  return true;
-  }else{
-    return false;
+function getAcceptedNumber (str){
+  let numStr;
+  if (str.includes("%")){
+    str.replace("%","")
+    numStr = parseFloat(str) // convert the string to number
+  }
+  if (numStr > 19.5 && numStr < 23.5){ // the condition
+    return true;
   }
 }
-let safeOxygen = numberOfPercentage.find(findOxygen);
-
-if (safeOxygen === undefined){
-  return safeOxygen = undefined;
-   
-}else{
-return safeOxygen.toString() + "%"
-}
-//return safeOxygen.toString() + "%"
-
+function findSafeOxygenLevel(oxygen) {
+return oxygen.find(getAcceptedNumber)
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== */
@@ -57,7 +42,7 @@ test("findSafeOxygenLevel function works - case 2", () => {
 test("findSafeOxygenLevel function filters out invalid percentages", () => {
   expect(
     findSafeOxygenLevel(["200%", "-21.5%", "20", "apes", "21.1%"])
-  ).toEqual("20%");
+  ).toEqual("21.1%");
 });
 
 test("findSafeOxygenLevel function returns undefined if no valid plants found", () => {

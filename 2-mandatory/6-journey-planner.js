@@ -86,11 +86,7 @@ function getTransportModes(mode) {
   Hint: Use the corresponding array method to decide if an element is member of an array.
 */
 function isAccessibleByTransportMode(arrayOfTransport, transportMode) {
-  if (arrayOfTransport.includes(transportMode)){
-    return true;
-  }else{
-    return false;
-  }
+  return arrayOfTransport.includes(transportMode);
 }
 
 /*
@@ -141,10 +137,8 @@ function journeyPlanner(locations, transportMode) {
   for (let i = 0; i < locations.length; i++){
     if (isAccessibleByTransportMode(locations[i],transportMode)){
       newArr.push(getLocationName(locations[i]));
-      //newArr1.push(getTransportModes(locations[i]));
     }
   }
-  //console.log(newArr1)
   return newArr
 }
 
